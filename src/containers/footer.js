@@ -1,7 +1,7 @@
 import React from 'react';
 import { Footer } from '../components';
 
-export default function FooterContainer() {
+export function FooterContainer() {
     return (
         <Footer>
             <Footer.Title>Questions? Contact Us</Footer.Title>
@@ -39,6 +39,5 @@ export default function FooterContainer() {
             <Footer.Break />
             <Footer.Text>Scranflix UK</Footer.Text>
         </Footer>
-    )
-
-}
+    );
+};

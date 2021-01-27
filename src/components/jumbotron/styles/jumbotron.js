@@ -23,6 +23,7 @@ export const Inner = styled.div`
 
 export const Pane = styled.div`
      width: 50%;
+     z-index: 1;
 
      @media (max-width: 1000px){
          width: 100%;
@@ -35,6 +36,7 @@ export const Title = styled.h1`
     font-size: 50px;
     line-height: 1.1;
     margin-bottom: 8px;
+    z-index: 1;
 
     @media(max-width: 600px){
         font-size: 35px;
