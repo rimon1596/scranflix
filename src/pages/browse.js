@@ -1,6 +1,16 @@
 import React from 'react';
+import { useContent } from '../hooks';
+import { HeaderContainer } from '../containers/header'
 
 
 export default function Browse() {
-    return <p>Hello from browse</p>;
+
+    const { series } = useContent('series');
+    console.log(series);
+    const { films } = useContent('films');
+    console.log(films);
+
+    return (
+        <HeaderContainer />
+    );
 }
