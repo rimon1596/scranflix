@@ -32,14 +32,15 @@ export const Background = styled.div`
 
 export const Container = styled.div`
    display: flex;
-   margin: 0 56px;
-   height: 64px;
-   padding: 18px 0;
+   height: 35px;
+   padding: 18px 56px;
    justify-content: space-between;
    align-items: center;
    z-index: 1;
-   position: ${({ active }) => (active === 'true' ? 'fixed' : null)};
-   background: ${({ active }) => (active === 'true' ? 'rgb(20, 20, 20)' : null)};
+   position: fixed;
+   background: ${({ active }) => (active === true ? 'rgb(20, 20, 20)' : null)};
+   background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
+   transition: background 0.8s ease;
    left: 0;
    right: 0;
 
@@ -61,6 +62,7 @@ export const Picture = styled.button`
    background: url(${({ src }) => src});
    background-size: contain;
    border: 0;
+   border-radius: 2px;
    width: 32px;
    height: 32px;
    cursor: pointer;
@@ -69,17 +71,30 @@ export const Picture = styled.button`
 export const Link = styled.p`
     color: white;
     text-decoration: none;
-    font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
+    font-weight: ${({ active }) => (active === true ? '700' : 'normal')};
     margin-right: 30px;
     cursor: pointer;
+    font-size: 15px;
+    transition: color 0.5s ease;
 
     &: hover {
-        font-weight: bold;
+        color: grey;
     }
 
     &: last-of-type {
         margin-right: 0;
     }
+`;
+
+export const TextLinkSmall = styled.p`
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+
 `;
 
 
@@ -149,19 +164,47 @@ export const PlayButton = styled.button`
    background-color: #e6e6e6;
    color: #000;
    border-width: 0;
-   padding: 10px 20px;
-   border-radius: 5px;
-   max-width: 130px;
+   border-radius: 4px;
+   max-width: 170px;
    font-weight: bold;
-   width: 100px;
+   width: 120px;
    font-size: 20px;
    margin-top: 10px;
    cursor: pointer;
    transition: background-color 0.5s ease;
+   padding: 0.7rem;
+
+
    &:hover {
-     background-color: #ff1e1e;
-     color: white;
+    background-color: rgb(230, 230, 230, 0.3)
    }
+`;
+export const Unicode = styled.span`
+     font-size: 25px;
+`;
+
+export const MoreInfoButton = styled.button`
+   box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+   border-width: 0;
+   border-radius: 4px;
+   margin-top: 10px;
+   margin-left: 10px;
+   font-weight: bold;
+   max-width: 170px;
+   width: 200px;
+   font-size: 20px;
+   cursor: pointer;
+   transition: background-color 1s ease;
+
+   background-color: rgba(109,109,110,0.7);
+   color: white;
+   justify-content: center;
+   opacity: 1;
+   padding: 0.7rem;
+   position: relative;
+
+   &:hover {
+    background-color: rgba(109,109,110,0.3);   }
 `;
 
 
@@ -196,13 +239,13 @@ export const Profile = styled.div`
 
 
 export const Logo = styled.img`
-  height: 32px;
-  width: 108px;
+  height: 25px;
+  width: 80px;
   margin-right: 40px;
 
   @media (min-width: 1449px){ 
-    height: 45px;
-    width: 167px;
+    height: 32px;
+    width: 108px;
    }
 `;
 
@@ -227,7 +270,7 @@ export const ButtonLink = styled(ReactRouterLink)`
 
 export const Feature = styled.div`
    flex-direction: column;
-   padding: 150px 0 500px 0;
+   padding: 150px 0 200px 0;
    align-items: normal;
    margin: 0 56px;
    width: 50%;
@@ -237,10 +280,15 @@ export const Feature = styled.div`
    }
 `;
 
+export const FeatureFiller = styled.div`
+     margin: 300px;
+`;
+
 export const Text = styled.p`
     color: white;
     font-size: 22px;
     line-height: normal;
+    max-width: 700px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.45);
 `;
 
@@ -250,6 +298,5 @@ export const FeatureCallOut = styled.h2`
     font-weight: bold;
     line-height: normal;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.45);
-    margin: 0;
     margin-bottom: 20px;
 `;

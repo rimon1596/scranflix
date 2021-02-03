@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import {
     Background,
@@ -6,23 +6,24 @@ import {
     Profile,
     Dropdown,
     PlayButton,
+    MoreInfoButton,
     ButtonLink,
     Group,
     Logo,
     Container,
     Feature,
+    Unicode,
+    FeatureFiller,
     Text,
     Search,
     SearchIcon,
     SearchInput,
     Link,
+    TextLinkSmall,
     FeatureCallOut
 } from './styles/header';
 
-const ContainerPinnedContext = createContext(true);
-
 export default function Header({ bg = true, children, ...restProps }) {
-
     return (
         bg ? <Background {...restProps}>
             {children}
@@ -41,6 +42,10 @@ Header.Text = function HeaderText({ children, ...restProps }) {
 
 Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
     return <Link {...restProps}>{children}</Link>
+}
+
+Header.TextLinkSmall = function HeaderTextLinkSmall({ children, ...restProps }) {
+    return <TextLinkSmall {...restProps}>{children}</TextLinkSmall>
 }
 
 Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }) {
@@ -71,13 +76,29 @@ Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
 };
 
 Header.Frame = function HeaderFrame({ children, ...restProps }) {
-    const pinnedContext = useContext(ContainerPinnedContext);
+    const [navbar, setNavbar] = useState(false);
 
-    return <Container active={pinnedContext} {...restProps}>{children}</Container>;
+    const changeNav = () => {
+        if (window.scrollY >= 50) {
+            setNavbar(true);
+        } else {
+            setNavbar(false);
+        }
+
+    }
+
+    window.addEventListener('scroll', changeNav);
+    return <Container
+        active={navbar}
+        {...restProps}>{children}</Container>;
 };
 
 Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
     return <PlayButton {...restProps}>{children}</PlayButton>
+};
+
+Header.MoreInfoButton = function HeaderMoreInfoButton({ children, ...restProps }) {
+    return <MoreInfoButton {...restProps}>{children}</MoreInfoButton>
 };
 
 Header.Group = function HeaderGroup({ children, ...restProps }) {
@@ -86,6 +107,10 @@ Header.Group = function HeaderGroup({ children, ...restProps }) {
 
 Header.ButtonLink = function HeaderButtonLink({ children, ...restProps }) {
     return <ButtonLink {...restProps}>{children}</ButtonLink>;
+};
+
+Header.FeatureFiller = function HeaderFeatureFiller({ children, ...restProps }) {
+    return <FeatureFiller {...restProps}>{children}</FeatureFiller>;
 };
 
 Header.Logo = function HeaderLogo({ to, ...restProps }) {
@@ -102,4 +127,12 @@ Header.Picture = function HeaderPicture({ src, ...restProps }) {
 
 Header.Profile = function HeaderProfile({ children, ...restProps }) {
     return <Profile>{children}</Profile>;
+};
+
+Header.Unicode = function HeaderUnicode({ children, ...restProps }) {
+    return <Unicode>{children}</Unicode>;
+};
+
+Header.TextLinkSmall = function HeaderTextLinkSmall({ children, ...restProps }) {
+    return <TextLinkSmall>{children}</TextLinkSmall>;
 };

@@ -42,6 +42,7 @@ export function BrowseContainer({ slides }) {
                         <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
                         <Header.Profile>
                             <Header.Picture src={user.photoURL} />
+                            <Header.TextLinkSmall>&#x25BC;</Header.TextLinkSmall>
                             <Header.Dropdown>
                                 <Header.Group>
                                     <Header.Picture src={user.photoURL} />
@@ -55,15 +56,20 @@ export function BrowseContainer({ slides }) {
                     </Header.Group>
                 </Header.Frame>
                 <Header.Feature>
+                    <Header.FeatureFiller></Header.FeatureFiller>
                     <Header.FeatureCallOut>Watch Scranman Now</Header.FeatureCallOut>
                     <Header.Text>
-                        Premise. In his second year of fighting crime,
-                        Scranman explores the corruption that plagues Gotham City
+                        Premise. In his second year
+                        of fighting crime,
+                        Scranman explores the corruption
+                        that plagues Gotham City
                         and how it may tie to his own family,
-                        in addition to coming into conflict with a serial killer
+                        in addition to coming into
+                        conflict with a serial killer
                         known as the Riddler.
                     </Header.Text>
-                    <Header.PlayButton>Play</Header.PlayButton>
+                    <Header.PlayButton> <Header.Unicode>&#9658;</Header.Unicode> Play</Header.PlayButton>
+                    <Header.MoreInfoButton> <Header.Unicode>&#9432;</Header.Unicode> More Info</Header.MoreInfoButton>
                 </Header.Feature>
             </Header>
         </>
