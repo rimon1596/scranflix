@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import {
     Background,
@@ -24,6 +24,7 @@ import {
 } from './styles/header';
 
 export default function Header({ bg = true, children, ...restProps }) {
+
     return (
         bg ? <Background {...restProps}>
             {children}
@@ -37,6 +38,7 @@ Header.Feature = function HeaderFeature({ children, ...restProps }) {
 };
 
 Header.Text = function HeaderText({ children, ...restProps }) {
+
     return <Text {...restProps}>{children}</Text>
 }
 

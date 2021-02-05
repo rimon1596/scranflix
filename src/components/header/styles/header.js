@@ -97,6 +97,15 @@ export const TextLinkSmall = styled.p`
 
 `;
 
+export const Text = styled.div`
+    color: white;
+    font-size: 22px;
+    line-height: normal;
+    max-width: 700px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.45);
+
+`;
+
 
 export const Dropdown = styled.div`
    display: none;
@@ -205,6 +214,7 @@ export const MoreInfoButton = styled.button`
 
    &:hover {
     background-color: rgba(109,109,110,0.3);   }
+
 `;
 
 
@@ -284,14 +294,6 @@ export const FeatureFiller = styled.div`
      margin: 300px;
 `;
 
-export const Text = styled.p`
-    color: white;
-    font-size: 22px;
-    line-height: normal;
-    max-width: 700px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.45);
-`;
-
 export const FeatureCallOut = styled.h2`
     color: white;
     font-size: 50px;
@@ -299,4 +301,5 @@ export const FeatureCallOut = styled.h2`
     line-height: normal;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.45);
     margin-bottom: 20px;
+
 `;

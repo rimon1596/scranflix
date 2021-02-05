@@ -4,9 +4,12 @@ import { SelectProfileContainer } from './profiles';
 import { Loading, Header } from '../components';
 import * as ROUTES from '../constants/routes'
 import logo from '../logo.png'
+import Card from '../components/card';
 
 export function BrowseContainer({ slides }) {
 
+    const [category, setCategory] = useState('series');
+    const [slideRows, setSlideRows] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
@@ -19,6 +22,10 @@ export function BrowseContainer({ slides }) {
             setLoading(false);
         }, 3000);
     }, [profile.displayName]);
+
+    useEffect(() => {
+        setSlideRows(slides[category])
+    }, [slides, category]);
 
     return profile.displayName ? (
 
@@ -33,8 +40,16 @@ export function BrowseContainer({ slides }) {
                     <Header.Group>
                         <Header.Logo to={ROUTES.HOME} src={logo} alt="Scranflix" />
                         <Header.TextLink>Home</Header.TextLink>
-                        <Header.TextLink>Series</Header.TextLink>
-                        <Header.TextLink>Films</Header.TextLink>
+                        <Header.TextLink active={category === 'series' ? 'true' : 'false'}
+                            onClick={() => setCategory('series')}
+                        >
+                            Series
+                        </Header.TextLink>
+                        <Header.TextLink active={category === 'films' ? 'true' : 'false'}
+                            onClick={() => setCategory('films')}
+                        >
+                            Films
+                            </Header.TextLink>
                         <Header.TextLink>New & Popular</Header.TextLink>
                         <Header.TextLink>My List</Header.TextLink>
                     </Header.Group>
@@ -72,6 +87,33 @@ export function BrowseContainer({ slides }) {
                     <Header.MoreInfoButton> <Header.Unicode>&#9432;</Header.Unicode> More Info</Header.MoreInfoButton>
                 </Header.Feature>
             </Header>
+
+            <Card.Group>
+                {slideRows.map((slideItem) => (
+                    <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
+                        <Card.Title>{slideItem.title}</Card.Title>
+                        <Card.Entities>
+                            {slideItem.data.map((item) =>
+                                <Card.Item>
+                                    <Card.Image
+                                        src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
+                                    />
+                                    <Card.Meta>
+                                        <Card.SubTitle>{item.title}</Card.SubTitle>
+                                        <Card.Title>{item.description}</Card.Title>
+                                    </Card.Meta>
+                                </Card.Item>
+                            )}
+                            {/* <Card.Feature category={category}>
+                                <Player>
+                                    <Payer.Button/>
+                                    <Player.Video src="/videos/bunny.mp4"/>
+                                </Player>
+                            </Card.Feature> */}
+                        </Card.Entities>
+                    </Card>
+                ))}
+            </Card.Group>
         </>
     ) : (
             <SelectProfileContainer user={user} setProfile={setProfile} />
