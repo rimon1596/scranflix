@@ -90,7 +90,7 @@ export function BrowseContainer({ slides }) {
                     <Header.FeatureCallOut>
                         <Header.TitleLogo src={`/images/misc/scranmanWhite.png`}></Header.TitleLogo>
                     </Header.FeatureCallOut>
-                    <Header.Text>
+                    {/* <Header.Text>
                         Premise. In his second year
                         of fighting crime,
                         Scranman explores the corruption
@@ -99,7 +99,7 @@ export function BrowseContainer({ slides }) {
                         in addition to coming into
                         conflict with a serial killer
                         known as the Riddler.
-                    </Header.Text>
+                    </Header.Text> */}
                     <Header.PlayButton> <Header.Unicode>&#9658;</Header.Unicode> Play</Header.PlayButton>
                     <Header.MoreInfoButton> <Header.Unicode>&#9432;</Header.Unicode> More Info</Header.MoreInfoButton>
                 </Header.Feature>
