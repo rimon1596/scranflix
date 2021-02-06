@@ -12,10 +12,12 @@ import {
     Logo,
     Container,
     Feature,
+    TitleLogo,
     Unicode,
     FeatureFiller,
     Text,
     Search,
+    Video,
     SearchIcon,
     SearchInput,
     Link,
@@ -32,10 +34,21 @@ export default function Header({ bg = true, children, ...restProps }) {
     );
 };
 
+
+Header.Video = function HeaderVideo({ children, ...restProps }) {
+    return <Video {...restProps}>{children}</Video>
+};
+
 Header.Feature = function HeaderFeature({ children, ...restProps }) {
 
     return <Feature {...restProps}>{children}</Feature>;
 };
+
+Header.TitleLogo = function HeaderTitleLogo({ children, ...restProps }) {
+
+    return <TitleLogo {...restProps}>{children}</TitleLogo>;
+};
+
 
 Header.Text = function HeaderText({ children, ...restProps }) {
 

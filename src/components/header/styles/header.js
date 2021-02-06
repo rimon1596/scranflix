@@ -2,33 +2,36 @@ import styled from 'styled-components/macro';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
 export const Background = styled.div`
-    display: flex;
-    flex-direction: column;
-    transform: none;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    max-width: 100%;
-    background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` :
+
+display: flex;
+flex-direction: column;
+transform: none;
+height: 100%;
+width: 100%;
+object-fit: cover;
+max-width: 100%;
+background: url(${({ src }) => (src ? `../images/misc/${src}.jpg` :
         '../images/misc/home-bg.jpg')}) top left / cover no-repeat;
 
-    @media (max-width: 1100px){
-        ${({ dontShowOnSmallViewPort }) =>
+@media (max-width: 1100px){
+${({ dontShowOnSmallViewPort }) =>
         dontShowOnSmallViewPort && `background: none;`}
-    }    
+} 
 `;
 
-// export const Gradient = styled.div`
-//     background: rgba(0,0,0,.4);
-//     background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100%);
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
-//     display: block;
-//     position: absolute;
-//     object-fit: cover;
-// `;
+export const BackgroundPic = styled.div`
+
+   
+`;
+
+export const Video = styled.video`
+    display: block;
+    transform: none;
+    position: sticky:
+    z-index: 10;
+    object-fit: cover;
+`;
+
 
 export const Container = styled.div`
    display: flex;
@@ -278,16 +281,21 @@ export const ButtonLink = styled(ReactRouterLink)`
     }
 `;
 
-export const Feature = styled.div`
+export const Feature = styled.div` 
    flex-direction: column;
    padding: 150px 0 200px 0;
    align-items: normal;
    margin: 0 56px;
    width: 50%;
+   height: 600px;
 
    @media (max-width: 1100px){
        display: none;
    }
+`;
+
+
+export const TitleLogo = styled.img`
 `;
 
 export const FeatureFiller = styled.div`
@@ -301,5 +309,10 @@ export const FeatureCallOut = styled.h2`
     line-height: normal;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.45);
     margin-bottom: 20px;
+
+    transform-origin: left bottom;
+    transform: scale(1) translate3d(0px, 0px, 0px);
+    transition-duration: 1300ms;
+    transition-delay: 0ms;
 
 `;

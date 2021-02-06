@@ -27,6 +27,21 @@ export function BrowseContainer({ slides }) {
         setSlideRows(slides[category])
     }, [slides, category]);
 
+    var vid = document.getElementById('video1');
+    if (vid) {
+        vid.addEventListener("ended", hideVideo, false);
+    }
+
+
+    function hideVideo() {
+        var vid = document.getElementById('video1');
+        var other = document.getElementById('other');
+        vid.removeEventListener("ended", hideVideo, false);
+        vid.style.display = 'none';
+        other.style.display = 'flex';
+
+    }
+
     return profile.displayName ? (
 
         <>
@@ -35,7 +50,7 @@ export function BrowseContainer({ slides }) {
             ) : (
                     <Loading.ReleaseBody />
                 )}
-            <Header src="batman2021" dontShowOnSmallViewPort>
+            <Header id="other" src="batman2021" dontShowOnSmallViewPort>
                 <Header.Frame>
                     <Header.Group>
                         <Header.Logo to={ROUTES.HOME} src={logo} alt="Scranflix" />
@@ -72,8 +87,10 @@ export function BrowseContainer({ slides }) {
                 </Header.Frame>
                 <Header.Feature>
                     <Header.FeatureFiller></Header.FeatureFiller>
-                    <Header.FeatureCallOut>Watch Scranman Now</Header.FeatureCallOut>
-                    <Header.Text>
+                    <Header.FeatureCallOut>
+                        <Header.TitleLogo src={`/images/misc/scranmanWhite.png`}></Header.TitleLogo>
+                    </Header.FeatureCallOut>
+                    {/* <Header.Text>
                         Premise. In his second year
                         of fighting crime,
                         Scranman explores the corruption
@@ -82,10 +99,11 @@ export function BrowseContainer({ slides }) {
                         in addition to coming into
                         conflict with a serial killer
                         known as the Riddler.
-                    </Header.Text>
+                    </Header.Text> */}
                     <Header.PlayButton> <Header.Unicode>&#9658;</Header.Unicode> Play</Header.PlayButton>
                     <Header.MoreInfoButton> <Header.Unicode>&#9432;</Header.Unicode> More Info</Header.MoreInfoButton>
                 </Header.Feature>
+                {/* <Header.Video id="video1" autoplay muted preload="none" src={'/videos/scranmanTrailer.mp4'} ></Header.Video> */}
             </Header>
 
             <Card.Group>
