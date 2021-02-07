@@ -19,11 +19,6 @@ ${({ dontShowOnSmallViewPort }) =>
 } 
 `;
 
-export const BackgroundPic = styled.div`
-
-   
-`;
-
 export const Video = styled.video`
     display: block;
     transform: none;
