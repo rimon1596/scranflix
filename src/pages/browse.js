@@ -2,6 +2,7 @@ import React from 'react';
 import { useContent } from '../hooks';
 import selectionFilter from '../utils/selection-filter';
 import { BrowseContainer } from '../containers/browse';
+import { FooterContainer } from '../containers/footer';
 
 
 export default function Browse() {
@@ -11,5 +12,10 @@ export default function Browse() {
 
     const slides = selectionFilter({ series, films });
 
-    return <BrowseContainer slides={slides} />
+    return (
+        <>
+            <BrowseContainer slides={slides} />
+            <FooterContainer></FooterContainer>
+        </>
+    );
 };

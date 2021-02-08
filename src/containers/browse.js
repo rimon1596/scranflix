@@ -118,7 +118,7 @@ export function BrowseContainer({ slides }) {
                                     />
                                     <Card.Meta>
                                         <Card.SubTitle>{item.title}</Card.SubTitle>
-                                        <Card.Title>{item.description}</Card.Title>
+                                        <Card.Text>{item.description}</Card.Text>
                                     </Card.Meta>
                                 </Card.Item>
                             ))}
