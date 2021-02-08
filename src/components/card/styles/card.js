@@ -12,13 +12,13 @@ export const Text = styled.p``;
 
 export const Image = styled.img``;
 
-export const Item = styled.p``;
+export const Item = styled.div``;
 
 export const Feature = styled.div``;
 
-export const FeatureTest = styled.p;
+export const FeatureText = styled.p``;
 
-export const FeatureTitle = styled(Title);
+export const FeatureTitle = styled(Title)``;
 
 export const FeatureClose = styled.button``;
 
@@ -29,3 +29,4 @@ export const Content = styled.div``;
 export const Meta = styled.div``;
 
 export const Entities = styled.div``;
+
