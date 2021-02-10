@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { FirebaseContext } from '../context/firebase';
 import { SelectProfileContainer } from './profiles';
-import { Loading, Header } from '../components';
+import { Loading, Header, Player } from '../components';
 import * as ROUTES from '../constants/routes'
 import logo from '../logo.png'
 import Card from '../components/card';
@@ -21,7 +21,7 @@ export function BrowseContainer({ slides }) {
         setTimeout(() => {
             setLoading(false);
         }, 3000);
-    }, [profile.displayName]);
+    }, [profile, profile.displayName]);
 
     useEffect(() => {
         setSlideRows(slides[category])
@@ -124,7 +124,10 @@ export function BrowseContainer({ slides }) {
                             ))}
                         </Card.Entities>
                         <Card.Feature category={category}>
-                            <p>hello</p>
+                            <Player>
+                                <Player.Button />
+                                <Player.Video src="/videos/atsley.mp4" />
+                            </Player>
                         </Card.Feature>
                     </Card>
                 ))}
