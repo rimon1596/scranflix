@@ -4,6 +4,7 @@ import { JumbotronContainer } from '../containers/jumbotron';
 import { FooterContainer } from '../containers/footer';
 import { HeaderContainer } from '../containers/header';
 import { OptForm, Feature } from '../components';
+import * as ROUTES from '../constants/routes';
 
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
                     </Feature.SubTitle>
                     <OptForm>
                         <OptForm.Input placeholder="Email Address" />
-                        <OptForm.Button>Get Started</OptForm.Button>
+                        <OptForm.Button to={ROUTES.SIGN_UP}>Get Started</OptForm.Button>
                         <OptForm.Break />
                         <OptForm.Text>
                             Ready to watch? Enter your email to create or restart your membership

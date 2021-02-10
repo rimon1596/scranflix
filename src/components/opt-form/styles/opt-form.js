@@ -1,4 +1,6 @@
 import styled from 'styled-components/macro';
+import { Link as ReactRouterLink } from 'react-router-dom';
+
 
 export const Container = styled.div`
     display: flex;
@@ -6,6 +8,7 @@ export const Container = styled.div`
     justify-content: center;
     height: 100%;
     flex-wrap: wrap;
+    z-index: 200;
 
     @media (max-width: 1000px){
         flex-direction: column;
@@ -23,7 +26,7 @@ export const Input = styled.input`
 
 `;
 
-export const Button = styled.button`
+export const Button = styled(ReactRouterLink)`
      display: flex;
      align-items: center;
      height: 70px;

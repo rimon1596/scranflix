@@ -34,7 +34,7 @@ export const Container = styled.div`
    padding: 18px 56px;
    justify-content: space-between;
    align-items: center;
-   z-index: 1;
+   z-index: 100;
    position: fixed;
    background: ${({ active }) => (active === true ? 'rgb(20, 20, 20)' : null)};
    background-image: linear-gradient(to bottom,rgba(0,0,0,.7) 10%,rgba(0,0,0,0));
@@ -259,6 +259,7 @@ export const Logo = styled.img`
 
 export const ButtonLink = styled(ReactRouterLink)`
     display: block;
+    z-index: 100;
     background-color: #e50914;
     width: 84px;
     height: fit-content;
