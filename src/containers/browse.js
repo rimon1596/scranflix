@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import Fuse from 'fuse.js';
 import { FirebaseContext } from '../context/firebase';
 import { SelectProfileContainer } from './profiles';
 import { Loading, Header, Player } from '../components';
@@ -27,20 +28,18 @@ export function BrowseContainer({ slides }) {
         setSlideRows(slides[category])
     }, [slides, category]);
 
-    var vid = document.getElementById('video1');
-    if (vid) {
-        vid.addEventListener("ended", hideVideo, false);
-    }
+    useEffect(() => {
+        const fuse = new Fuse(slideRows, {
+            keys: ['data.description', 'data.title', 'data.genre'],
+        });
+        const results = fuse.search(searchTerm).map(({ item }) => item);
 
-
-    function hideVideo() {
-        var vid = document.getElementById('video1');
-        var other = document.getElementById('other');
-        vid.removeEventListener("ended", hideVideo, false);
-        vid.style.display = 'none';
-        other.style.display = 'flex';
-
-    }
+        if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+            setSlideRows(results);
+        } else {
+            setSlideRows(slides[category]);
+        }
+    }, [searchTerm]);
 
     return profile.displayName ? (
 
