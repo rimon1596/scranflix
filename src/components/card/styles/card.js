@@ -205,7 +205,7 @@ export const Content = styled.div`
 `;
 
 export const Entities = styled.div`
-     display: flex;
+    display: flex;
     flex-direction: row;
 `;
 
