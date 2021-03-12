@@ -1,6 +1,6 @@
 # scranflix
 
-reverse-engineer Netflix UI with using REACT
+reverse-engineer Netflix UI using REACT
 
 Check it out!
 https://www.scranflix.com
